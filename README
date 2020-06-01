@@ -1,0 +1,21 @@
+Compilation:
+On Linux and Mac run "make" from the root directory. Tip use "make -j" to comple on multiple cores
+
+Windows: Use Visual studio or cygwin to compile. The scripts vcvars32.sh or vcvars64.sh show an example on how to compile the binaries using cygwin  commandline and a visual studio compiler 
+
+Installation:
+Copy binaries from "./bin" to a suitable location.
+
+Version 2.3.2:
+-Fixed bug in bootstrap algorithm which caused the bootstrap values to be lower than the true value in most cases.
+-Fixed bug that caused the last two branches to have the wrong distance.
+
+For all publications and documentation see: https://birc.au.dk/software/rapidnj/
+
+Pulication list:
+https://users-birc.au.dk/~cstorm/software/rapidnj/papers/SimonsenOthers2008_WABI.pdf
+https://users-birc.au.dk/~cstorm/software/rapidnj/papers/SimonsenOthers2011_CCIC.pdf
+https://users-birc.au.dk/~cstorm/software/rapidnj/papers/SimonsenPedersen2011_SAC.pdf
+
+Contact:
+Martin Simonsen - somme89@gmail.com

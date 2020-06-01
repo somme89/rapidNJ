@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{26CAEE12-46EF-4140-8D68-BF2068264352}</ProjectGuid>
+    <RootNamespace>msvc2012</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(Platform)\$(Configuration)\bin\</OutDir>
+    <TargetName>rapidnj_$(Platform)</TargetName>
+    <IntDir>$(Platform)\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>rapidnj_$(Platform)</TargetName>
+    <OutDir>x64\$(Configuration)\bin\</OutDir>
+    <IntDir>x64\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>rapidnj_x86</TargetName>
+    <OutDir>x86\$(Configuration)\bin\</OutDir>
+    <IntDir>x86\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>rapidnj_x86</TargetName>
+    <OutDir>x86\$(Configuration)\bin\</OutDir>
+    <IntDir>x86\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>lib\includes;src\getopt_pp;src\distanceCalculation;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>-DPTW32_STATIC_LIB %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\projects\rapidNJ\trunk\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>-DPTW32_STATIC_LIB %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>lib/x86/pthreadVC2S.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level2</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>lib\includes;src\getopt_pp;src\distanceCalculation;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>-DPTW32_STATIC_LIB %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2S.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level2</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>lib\includes;src\getopt_pp;src\distanceCalculation;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-DPTW32_STATIC_LIB %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>lib/x86/pthreadVC2S.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\projects\rapidNJ\trunk\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level2</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>-DPTW32_STATIC_LIB %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>lib\includes;src\getopt_pp;src\distanceCalculation;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;lib/x64/pthreadVC2S.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\projects\rapidNJ\trunk\lib\x64;</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ProgressBar.cpp" />
+    <ClCompile Include="src\diskMatrix.cpp" />
+    <ClCompile Include="src\distanceCalculation\bitDistanceGap.cpp" />
+    <ClCompile Include="src\distanceCalculation\bitDistanceProtein.cpp" />
+    <ClCompile Include="src\distanceCalculation\dataloader.cpp" />
+    <ClCompile Include="src\distanceCalculation\dataloaderPhylip.cpp" />
+    <ClCompile Include="src\distanceCalculation\DistanceEstimate.cpp" />
+    <ClCompile Include="src\distanceCalculation\dnaBitString.cpp" />
+    <ClCompile Include="src\distanceCalculation\hammingDistance.cpp" />
+    <ClCompile Include="src\distanceCalculation\JCdistance.cpp" />
+    <ClCompile Include="src\distanceCalculation\KimuraDistance.cpp" />
+    <ClCompile Include="src\distanceCalculation\simpleDistanceCalculator.cpp" />
+    <ClCompile Include="src\distMatrixReader.cpp" />
+    <ClCompile Include="src\getopt_pp\getopt_pp.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\node.cpp" />
+    <ClCompile Include="src\polytree.cpp" />
+    <ClCompile Include="src\rapidNJ.cpp" />
+    <ClCompile Include="src\rapidNJDisk.cpp" />
+    <ClCompile Include="src\rapidNJMem.cpp" />
+    <ClCompile Include="src\rdDataInitialiser.cpp" />
+    <ClCompile Include="src\simpleNJ.cpp" />
+    <ClCompile Include="src\testNJ.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bisection.h" />
+    <ClInclude Include="src\Bisection.h" />
+    <ClInclude Include="src\ProgressBar.hpp" />
+    <ClInclude Include="src\bootstrapping\bootstrapper.hpp" />
+    <ClInclude Include="src\cluster_pair.h" />
+    <ClInclude Include="src\diskMatrix.h" />
+    <ClInclude Include="src\distanceCalculation\bitDistanceGap.hpp" />
+    <ClInclude Include="src\distanceCalculation\bitDistanceProtein.hpp" />
+    <ClInclude Include="src\distanceCalculation\bitStringUtils.hpp" />
+    <ClInclude Include="src\distanceCalculation\dataloader.hpp" />
+    <ClInclude Include="src\distanceCalculation\dataloaderMemory.hpp" />
+    <ClInclude Include="src\distanceCalculation\dataloaderPhylip.hpp" />
+    <ClInclude Include="src\distanceCalculation\dataloaderStockholm.hpp" />
+    <ClInclude Include="src\distanceCalculation\DistanceEstimate.hpp" />
+    <ClInclude Include="src\distanceCalculation\dnaBitString.hpp" />
+    <ClInclude Include="src\distanceCalculation\gpu\constants.hpp" />
+    <ClInclude Include="src\distanceCalculation\gpu\cutil.h" />
+    <ClInclude Include="src\distanceCalculation\gpu\cutil_inline.h" />
+    <ClInclude Include="src\distanceCalculation\gpu\cutil_inline_bankchecker.h" />
+    <ClInclude Include="src\distanceCalculation\gpu\cutil_inline_drvapi.h" />
+    <ClInclude Include="src\distanceCalculation\gpu\cutil_inline_runtime.h" />
+    <ClInclude Include="src\distanceCalculation\hammingDistance.hpp" />
+    <ClInclude Include="src\distanceCalculation\dataloaderFasta.hpp" />
+    <ClInclude Include="src\distanceCalculation\JCdistance.hpp" />
+    <ClInclude Include="src\distanceCalculation\KimuraDistance.hpp" />
+    <ClInclude Include="src\distanceCalculation\simpleDistanceCalculator.hpp" />
+    <ClInclude Include="src\distMatrixReader.hpp" />
+    <ClInclude Include="src\getopt_pp\getopt_pp.h" />
+    <ClInclude Include="src\getopt_pp\getopt_pp_standalone.h" />
+    <ClInclude Include="src\minFinder.h" />
+    <ClInclude Include="src\node.h" />
+    <ClInclude Include="src\polytree.h" />
+    <ClInclude Include="src\rapidNJ.h" />
+    <ClInclude Include="src\rapidNJDisk.h" />
+    <ClInclude Include="src\rapidNJMem.hpp" />
+    <ClInclude Include="src\rdDataInitialiser.h" />
+    <ClInclude Include="src\simpleNJ.h" />
+    <ClInclude Include="src\stdinclude.h" />
+    <ClInclude Include="src\testNJ.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
