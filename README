@@ -1,4 +1,6 @@
 Compilation:
+Dependencies: C++
+
 On Linux and Mac run "make" from the root directory. Tip use "make -j" to comple on multiple cores
 
 Windows: Use Visual studio or cygwin to compile. The scripts vcvars32.sh or vcvars64.sh show an example on how to compile the binaries using cygwin  commandline and a visual studio compiler 
