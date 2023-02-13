@@ -6,10 +6,6 @@
 #include <pthread.h>
 #include <sched.h>
 #include <errno.h>
-#ifdef __SSE4_2__
-#include "bitDistanceProteinPopCnt.hpp"
-#include "bitDistanceGapPopCnt.hpp"
-#endif
 #include "bitDistanceGap.hpp"
 #include "bitDistanceProtein.hpp"
 #include "dnaBitString.hpp"
