@@ -20,7 +20,7 @@
 
 using namespace std;
 
-const string VERSION = "2.2.2";
+const string VERSION = "2.2.3";
 
 #ifdef __APPLE__
 #include <sys/types.h>
