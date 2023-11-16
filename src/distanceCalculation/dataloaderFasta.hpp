@@ -29,11 +29,11 @@ public:
       sequences = new vector<char*>;
       parseData(filename);
     }
-	if(sequenceCount <= 1) {
-		cerr << "Found " << sequenceCount << " sequences in the input file. At least 2 sequences are needed to build a tree." << endl;
-		exit(1);
-	}
-    if(verbose){
+    if(sequenceCount <= 1) {
+      cerr << "Found " << sequenceCount << " sequences in the input file. At least 2 sequences are needed to build a tree." << endl;
+      exit(1);
+    }
+    if(verbose) {
       cerr << "Input type determined as ";
       if(type == UNKNOWN){
         cerr << "UNKNOWN. Please supply the type as parameter." << endl;
@@ -88,7 +88,7 @@ public:
       if(curChar == ';') {
         parseComment();
       } else if(curChar == '>') {
-        storeSequence();
+        storeSequence(); //Ignored if there is no sequence data
         curChar = getNextChar();
         parseSequenceName();
       } else {
@@ -99,14 +99,20 @@ public:
   }
 
   inline void fillBuffer(){    
-    if(is->good()){
-      is->read(buf,BUFFER_SIZE);
-      bufPos = 0;
-    } else {
+    if(!is->good()){
       delete[] buf;
       buf = NULL;
       is->close();
+      return;
+    }    
+    is->read(buf,BUFFER_SIZE);
+    if (is->gcount() == 0){
+      delete[] buf;
+      buf = NULL;
+      is->close();
+      return;
     }
+    bufPos = 0;    
   }
 
   inline char getNextChar() {
@@ -207,7 +213,7 @@ public:
       name.push_back(curChar);
       curChar = getNextChar();
     }
-    sequenceNames->push_back(name);    
+    sequenceNames->push_back(name);
   }
 
   void storeSequenceFastDist(){
@@ -216,7 +222,7 @@ public:
         bitStringsCount = sequenceLength / 64 + 6;
         paddingLength = bitStringsCount*64 - sequenceLength;
         gapFilters = new vector<unsigned int*>;
-      } else {	
+      } else {
         bitStringsCount = sequenceLength / 16 + 8;
         paddingLength = bitStringsCount*16 - sequenceLength;
       }
@@ -237,6 +243,7 @@ public:
     } else {
       encodeProteinSequence(bitString, charBuffer);
     }
+
     bitStrings->push_back(bitString);
     firstSequence = false;    
     sequenceCount++;
@@ -245,11 +252,12 @@ public:
 
   void storeSequence(){
     if(charBuffer.size() != 0) {
+
       if(firstSequence) {
         sequenceLength = charBuffer.size();
-        discoverInputType();        
+        discoverInputType();	
       } else if(charBuffer.size() != sequenceLength){
-        cerr << "ERROR: Sequence " << sequenceCount << " has length " << charBuffer.size() << " while the preceding sequences in the alignment which have length " << sequenceLength << "." << endl;
+	cerr << "ERROR: Sequence " << sequenceCount << " has length " << charBuffer.size() << " while the preceding sequences in the alignment which have length " << sequenceLength << "." << endl;	
         exit(1);
       }
       if(fastdist) {
