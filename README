@@ -1,5 +1,5 @@
 Compilation:
-Dependencies: C++
+Dependencies: C++ (install on debian/ubuntu systems with the command "sudo apt install g++")
 
 On Linux and Mac run "make" from the root directory. Tip use "make -j" to comple on multiple cores
 
